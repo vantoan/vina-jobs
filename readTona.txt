@@ -1,0 +1,12 @@
+bower:
+bower install underscore
+bower install craftpip/jquery-confirm
+bower install bootstrap-datepicker
+bower install --save fontawesome
+
+
+
+
+composer:
+composer require phpmailer/phpmailer
+composer require nesbot/carbon

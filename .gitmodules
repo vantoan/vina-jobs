@@ -1,0 +1,3 @@
+[submodule "web/plugins/icheck"]
+	path = web/plugins/icheck
+	url = https://github.com/fronteed/icheck.git

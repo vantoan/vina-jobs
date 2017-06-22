@@ -1,0 +1,26 @@
+@white: #FFFFFF;
+@green: #00a7e2;
+@color-logo: #00a7e2;
+
+.events-index {
+	.fc-event,
+	.fc-event-dot{
+		background: @color-logo;
+	}
+	.fc-event{
+		border-color: @color-logo;
+	}
+	tr:first-child>td>.fc-day-grid-event{
+		padding-left: 5px;
+	}
+	tr>td>.fc-day-grid-event{
+		&:hover{
+			opacity: 0.7;
+		}
+	}
+	.fc-toolbar{
+		button{
+			text-transform: capitalize;
+		}
+	}
+}

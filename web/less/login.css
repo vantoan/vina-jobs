@@ -1,0 +1,7 @@
+.login section.login_content input {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.login section.login_content p.help-block {
+  text-align: left;
+}

@@ -1,0 +1,16 @@
+.events-index .fc-event,
+.events-index .fc-event-dot {
+  background: #00a7e2;
+}
+.events-index .fc-event {
+  border-color: #00a7e2;
+}
+.events-index tr:first-child > td > .fc-day-grid-event {
+  padding-left: 5px;
+}
+.events-index tr > td > .fc-day-grid-event:hover {
+  opacity: 0.7;
+}
+.events-index .fc-toolbar button {
+  text-transform: capitalize;
+}

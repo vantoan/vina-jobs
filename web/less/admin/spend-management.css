@@ -1,0 +1,23 @@
+/* Fix responsive */
+@media only screen and (max-width: 768px) {
+  .spend-management-index #spend-management-template thead tr th.type,
+  .spend-management-index #spend-management-template thead tr th.des {
+    display: none;
+  }
+  .spend-management-index #spend-management-template tbody tr td.type,
+  .spend-management-index #spend-management-template tbody tr td.des {
+    display: none;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .spend-management-index #spend-management-template thead tr th.imp-exp,
+  .spend-management-index #spend-management-template thead tr th.status,
+  .spend-management-index #spend-management-template thead tr th.time {
+    display: none;
+  }
+  .spend-management-index #spend-management-template tbody tr td.imp-exp,
+  .spend-management-index #spend-management-template tbody tr td.status,
+  .spend-management-index #spend-management-template tbody tr td.time {
+    display: none;
+  }
+}

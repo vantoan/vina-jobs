@@ -1,0 +1,57 @@
+.spend-management-index{
+	#spend-management-template{
+		thead{
+			tr{
+				th:nth-child(1){}
+			}
+		}
+	}
+}
+
+/* Fix responsive */
+@media only screen and (max-width: 768px) {
+	.spend-management-index{
+		#spend-management-template{
+			thead{
+				tr{
+					th.type,
+					th.des{
+						display: none;
+					}
+				}
+			}
+			tbody{
+				tr {
+					td.type,
+					td.des{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 500px) {
+	.spend-management-index{
+		#spend-management-template{
+			thead{
+				tr{
+					th.imp-exp,
+					th.status,
+					th.time{
+						display: none;
+					}
+				}
+			}
+			tbody{
+				tr {
+					td.imp-exp,
+					td.status,
+					td.time{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

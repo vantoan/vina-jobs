@@ -1,0 +1,89 @@
+#signup-modal{
+	input.form-control{
+		margin-bottom: 0;
+	}
+	.help-block{
+		p{
+			font-size: 12px;
+		}
+	}
+	.form-group{
+		margin-bottom: 0;
+	}
+	form#signup-form{
+		p.help-block{
+			min-height: 20px;
+		}
+	}
+}
+#login-modal{
+	ul.auth-clients{
+		li{
+			margin: auto;
+			float: inherit;
+			a{
+				display: inline-block;
+			}
+		}
+	}
+}
+.spinner {
+	display: inline-block;
+	opacity: 0;
+	width: 0;
+
+	-webkit-transition: opacity 0.25s, width 0.25s;
+	-moz-transition: opacity 0.25s, width 0.25s;
+	-o-transition: opacity 0.25s, width 0.25s;
+	transition: opacity 0.25s, width 0.25s;
+}
+
+.has-spinner.active {
+	cursor:progress;
+}
+
+.has-spinner.active .spinner {
+	opacity: 1;
+	width: auto; /* This doesn't work, just fix for unkown width elements */
+}
+
+.has-spinner.btn-mini.active .spinner {
+	width: 10px;
+}
+
+.has-spinner.btn-small.active .spinner {
+	width: 13px;
+}
+
+.has-spinner.btn.active .spinner {
+	width: 16px;
+}
+
+.has-spinner.btn-large.active .spinner {
+	width: 19px;
+}
+
+
+
+/* #modal-select-form */
+
+#modal-select-form{
+	.modal-body{
+		button{
+			height: 50px;
+		}
+	}
+}
+.modal {
+	.form-control{
+		border-radius: 2px;
+	}
+	p.help-block.help-block-error{
+		font-size: 11px;
+		min-height: 15px;
+		margin-bottom: 0;
+	}
+	.form-group{
+		margin-bottom: 10px;
+	}
+}

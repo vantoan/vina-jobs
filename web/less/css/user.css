@@ -1,0 +1,33 @@
+/* Profile */
+#content_page .profile {
+  padding-top: 15px;
+}
+#content_page .profile .user-row {
+  margin-bottom: 14px;
+}
+#content_page .profile .user-row:last-child {
+  margin-bottom: 0;
+}
+#content_page .profile .dropdown-user {
+  margin: 13px 0;
+  padding: 5px;
+  height: 100%;
+}
+#content_page .profile .dropdown-user:hover {
+  cursor: pointer;
+}
+#content_page .profile .table-user-information > tbody > tr {
+  border-top: 1px solid #dddddd;
+}
+#content_page .profile .table-user-information > tbody > tr:first-child {
+  border-top: 0;
+}
+#content_page .profile .table-user-information > tbody > tr > td {
+  border-top: 0;
+}
+#content_page .profile .toppad {
+  margin-top: 20px;
+}
+#content_page .profile .panel-title {
+  text-transform: uppercase;
+}
