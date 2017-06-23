@@ -61,11 +61,7 @@ class SiteController extends BaseController
      */
     public function actionIndex()
     {
-        $services = Article::getArticle('dich-vu');
-        $project = Article::getArticle('du-an');
         return $this->render('index', [
-            'services' => $services,
-            'projects' => $project
         ]);
     }
 

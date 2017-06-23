@@ -12,95 +12,264 @@ $this->title = $page->seo_title ? $page->seo_title : $page->name;
 Helper::setSeo('description', $page->seo_description ? $page->seo_description : '');
 ?>
 
-<section id="featured">
-	<!-- start slider -->
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<!-- Slider -->
-				<div id="main-slider" class="flexslider">
-					<?= CarouselWidget::widget() ?>
-				</div>
-				<!-- end slider -->
-			</div>
-		</div>
-	</div>
-</section>
+<div class="container">
+	<div class="grid_1">
+		<h3>Featured Employers</h3>
+		<ul id="flexiselDemo3">
+			<li><img src="/web/template/jobs/images/c1.gif"  class="img-responsive" /></li>
+			<li><img src="/web/template/jobs/images/c2.gif"  class="img-responsive" /></li>
+			<li><img src="/web/template/jobs/images/c3.gif"  class="img-responsive" /></li>
+			<li><img src="/web/template/jobs/images/c4.gif"  class="img-responsive" /></li>
+			<li><img src="/web/template/jobs/images/c5.gif"  class="img-responsive" /></li>
+			<li><img src="/web/template/jobs/images/c6.gif"  class="img-responsive" /></li>
+		</ul>
+		<script type="text/javascript">
+			$(window).load(function() {
+				$("#flexiselDemo3").flexisel({
+					visibleItems: 6,
+					animationSpeed: 1000,
+					autoPlay:false,
+					autoPlaySpeed: 3000,
+					pauseOnHover: true,
+					enableResponsiveBreakpoints: true,
+					responsiveBreakpoints: {
+						portrait: {
+							changePoint:480,
+							visibleItems: 1
+						},
+						landscape: {
+							changePoint:640,
+							visibleItems: 2
+						},
+						tablet: {
+							changePoint:768,
+							visibleItems: 3
+						}
+					}
+				});
 
-<section class="callaction">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="big-cta">
-					<div class="cta-text">
-						<h2><?= SiteWidget::site('com_name')?></h2>
-					</div>
-				</div>
-			</div>
-		</div>
+			});
+		</script>
 	</div>
-</section>
-<section id="content">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="row services">
-					<?php if($services){
-					foreach($services as $service){
-					?>
-					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-						<div class="box">
-							<div class="box-icon">
-								<img src="<?= Helper::thumbnail(CacheImg::OBJECT_TYPE_ARTICLE_THUM, $service['id'], $service['image'], 100, 100) ?>">
-							</div>
-							<div class="info">
-								<h4 class="text-center"><?= $service['name'] ?></h4>
-								<p><?= $service['description'] ?></p>
-								<a href="<?= Helper::urlTo('dich-vu', $service['slug']) ?>" class="btn">Xem</a>
-							</div>
+	<div class="single">
+		<div class="col-md-4">
+			<div class="col_3">
+				<h3>Todays Jobs</h3>
+				<ul class="list_1">
+					<li><a href="#">Department of Health - Western Australia</a></li>
+					<li><a href="#">Australian Nursing Agency currently require experiences</a></li>
+					<li><a href="#">Russia Nursing Agency currently require experiences</a></li>
+					<li><a href="#">The Government of Western Saudi Arbia</a></li>
+					<li><a href="#">Department of Health - Western Australia</a></li>
+					<li><a href="#">Australian Nursing Agency currently require experiences</a></li>
+					<li><a href="#">Russia Nursing Agency currently require experiences</a></li>
+					<li><a href="#">The Scientific Publishing Services in Saudi Arbia</a></li>
+					<li><a href="#">BPO Private Limited in Canada</a></li>
+					<li><a href="#">Executive Tracks Associates in Pakistan</a></li>
+					<li><a href="#">Pyramid IT Consulting Pvt. Ltd. in Pakistan</a></li>
+				</ul>
+			</div>
+			<div class="col_3">
+				<h3>Jobs by Category</h3>
+				<ul class="list_2">
+					<li><a href="#">Railway Recruitment</a></li>
+					<li><a href="#">Air Force Jobs</a></li>
+					<li><a href="#">Police Jobs</a></li>
+					<li><a href="#">Intelligence Bureau Jobs</a></li>
+					<li><a href="#">Army Jobs</a></li>
+					<li><a href="#">Navy Jobs</a></li>
+					<li><a href="#">BSNL Jobs</a></li>
+					<li><a href="#">Software Jobs</a></li>
+					<li><a href="#">Research Jobs</a></li>
+				</ul>
+			</div>
+			<div class="widget">
+				<h3>Take The Seeking Poll!</h3>
+				<div class="widget-content">
+					<div class="seeking-answer">
+			    	<span class="seeking-answer-group">
+		    			<span class="seeking-answer-input">
+		    			   <input class="seeking-radiobutton" type="radio">
+		    			</span>
+		    			<label for="" class="seeking-input-label">
+						    <span class="seeking-answer-span">Frequently</span>
+					    </label>
+		    		</span>
+                        <span class="seeking-answer-group">
+		    			<span class="seeking-answer-input">
+		    			   <input class="seeking-radiobutton" type="radio">
+		    			</span>
+		    			<label for="" class="seeking-input-label">
+						    <span class="seeking-answer-span">Interviewing</span>
+					    </label>
+		    		</span>
+                        <span class="seeking-answer-group">
+		    			<span class="seeking-answer-input">
+		    			   <input class="seeking-radiobutton" type="radio">
+		    			</span>
+		    			<label for="" class="seeking-input-label">
+						    <span class="seeking-answer-span">Leaving a familiar workplace</span>
+					    </label>
+		    		</span>
+						<div class="seeking_vote">
+							<a class="seeking-vote-button">Vote</a>
 						</div>
 					</div>
-					<?php } }?>
 				</div>
 			</div>
 		</div>
-		<!-- divider -->
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="solidline">
+		<div class="col-md-8">
+			<div class="col_1">
+				<div class="col-sm-4 row_2">
+					<a href="single.html"><img src="/web/template/jobs/images/a1.jpg" class="img-responsive" alt=""/></a>
 				</div>
+				<div class="col-sm-8 row_1">
+					<h4><a href="single.html">It is a long established fact</a></h4>
+					<h6>SIt is a long <span class="dot">·</span> Jul. 31, 2015</h6>
+					<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
+					<div class="social">
+						<a class="btn_1" href="#">
+							<i class="fa fa-facebook fb"></i>
+							<span class="share1 fb">Share</span>
+						</a>
+						<a class="btn_1" href="#">
+							<i class="fa fa-twitter tw"></i>
+							<span class="share1">Tweet</span>
+						</a>
+						<a class="btn_1" href="#">
+							<i class="fa fa-google-plus google"></i>
+							<span class="share1 google">Share</span>
+						</a>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="col_1">
+				<div class="col-sm-4 row_2">
+					<a href="single.html"><img src="/web/template/jobs/images/a2.jpg" class="img-responsive" alt=""/></a>
+				</div>
+				<div class="col-sm-8 row_1">
+					<h4><a href="single.html">Lorem Ipsum is simply dummy</a></h4>
+					<h6>SIt is a long <span class="dot">·</span> Jul. 31, 2015</h6>
+					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+					<div class="social">
+						<a class="btn_1" href="#">
+							<i class="fa fa-facebook fb"></i>
+							<span class="share1 fb">Share</span>
+						</a>
+						<a class="btn_1" href="#">
+							<i class="fa fa-twitter tw"></i>
+							<span class="share1">Tweet</span>
+						</a>
+						<a class="btn_1" href="#">
+							<i class="fa fa-google-plus google"></i>
+							<span class="share1 google">Share</span>
+						</a>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="col_1">
+				<div class="col-sm-4 row_2">
+					<a href="single.html"><img src="/web/template/jobs/images/a3.jpg" class="img-responsive" alt=""/></a>
+				</div>
+				<div class="col-sm-8 row_1">
+					<h4><a href="single.html">There are many variations</a></h4>
+					<h6>SIt is a long <span class="dot">·</span> Jul. 31, 2015</h6>
+					<p>YBut I must explain to you how all this mistaken idea of denouncing pleasure.</p>
+					<div class="social">
+						<a class="btn_1" href="#">
+							<i class="fa fa-facebook fb"></i>
+							<span class="share1 fb">Share</span>
+						</a>
+						<a class="btn_1" href="#">
+							<i class="fa fa-twitter tw"></i>
+							<span class="share1">Tweet</span>
+						</a>
+						<a class="btn_1" href="#">
+							<i class="fa fa-google-plus google"></i>
+							<span class="share1 google">Share</span>
+						</a>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="col_1">
+				<div class="col-sm-4 row_2">
+					<a href="single.html"><img src="/web/template/jobs/images/a4.jpg" class="img-responsive" alt=""/></a>
+				</div>
+				<div class="col-sm-8 row_1">
+					<h4><a href="single.html">Contrary to popular belief</a></h4>
+					<h6>SIt is a long <span class="dot">·</span> Jul. 31, 2015</h6>
+					<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+					<div class="social">
+						<a class="btn_1" href="#">
+							<i class="fa fa-facebook fb"></i>
+							<span class="share1 fb">Share</span>
+						</a>
+						<a class="btn_1" href="#">
+							<i class="fa fa-twitter tw"></i>
+							<span class="share1">Tweet</span>
+						</a>
+						<a class="btn_1" href="#">
+							<i class="fa fa-google-plus google"></i>
+							<span class="share1 google">Share</span>
+						</a>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="col_1">
+				<div class="col-sm-4 row_2">
+					<a href="single.html"><img src="/web/template/jobs/images/a5.jpg" class="img-responsive" alt=""/></a>
+				</div>
+				<div class="col-sm-8 row_1">
+					<h4><a href="single.html">At vero eos et accusamus</a></h4>
+					<h6>SIt is a long <span class="dot">·</span> Jul. 31, 2015</h6>
+					<p>On the other hand, we denounce with righteous indignation and dislike men.</p>
+					<div class="social">
+						<a class="btn_1" href="#">
+							<i class="fa fa-facebook fb"></i>
+							<span class="share1 fb">Share</span>
+						</a>
+						<a class="btn_1" href="#">
+							<i class="fa fa-twitter tw"></i>
+							<span class="share1">Tweet</span>
+						</a>
+						<a class="btn_1" href="#">
+							<i class="fa fa-google-plus google"></i>
+							<span class="share1 google">Share</span>
+						</a>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="col_2">
+				<div class="col-sm-4 row_2">
+					<a href="single.html"><img src="/web/template/jobs/images/a6.jpg" class="img-responsive" alt=""/></a>
+				</div>
+				<div class="col-sm-8 row_1">
+					<h4><a href="single.html">On the other hand</a></h4>
+					<h6>SIt is a long <span class="dot">·</span> Jul. 31, 2015</h6>
+					<p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+					<div class="social">
+						<a class="btn_1" href="#">
+							<i class="fa fa-facebook fb"></i>
+							<span class="share1 fb">Share</span>
+						</a>
+						<a class="btn_1" href="#">
+							<i class="fa fa-twitter tw"></i>
+							<span class="share1">Tweet</span>
+						</a>
+						<a class="btn_1" href="#">
+							<i class="fa fa-google-plus google"></i>
+							<span class="share1 google">Share</span>
+						</a>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
 			</div>
 		</div>
-		<!-- end divider -->
-		<!-- Portfolio Projects -->
-		<div class="row">
-			<div class="col-lg-12">
-				<h4 class="heading">Các dự án</h4>
-				<div class="row">
-					<section id="projects">
-						<ul id="thumbs" class="portfolio">
-							<!-- Item Project and Filter Name -->
-							<?php if($projects){
-							foreach($projects as $key => $project){
-							?>
-							<li class="col-lg-3 design" data-id="id-<?= $key ?>" data-type="web">
-								<div class="item-thumbs">
-									<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-									<a class="hover-wrap" title="Xem chi tiết" href="<?= Helper::urlTo('cong-trinh', $project['slug']) ?>">
-										<span class="overlay-img"></span>
-										<span class="overlay-img-thumb font-icon-plus"></span>
-									</a>
-									<!-- Thumb Image and Description -->
-									<img src="<?= Helper::thumbnail(\app\models\CacheImg::OBJECT_TYPE_PROJECT_THUM_INDEX, $project['id'], $project['image'], 260, 205) ?>" alt="">
-								</div>
-							</li>
-							<?php } }?>
-							<!-- End Item Project -->
-						</ul>
-					</section>
-				</div>
-			</div>
-		</div>
-
+		<div class="clearfix"> </div>
 	</div>
-</section>
+</div>
