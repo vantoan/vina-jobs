@@ -7,7 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Login';
+$this->title = 'Features';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -25,6 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+
 <div class="container">
     <div class="single">
         <div class="col-md-4">
@@ -94,54 +95,29 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
         <div class="col-md-8 single_right">
-            <div class="login-form-section">
-                <div class="login-content">
-                    <form>
-                        <div class="section-title">
-                            <h3>LogIn to your Account</h3>
-                        </div>
-                        <div class="textbox-wrap">
-                            <div class="input-group">
-                                <span class="input-group-addon "><i class="fa fa-user"></i></span>
-                                <input type="text" required="required" class="form-control" placeholder="Username">
-                            </div>
-                        </div>
-                        <div class="textbox-wrap">
-                            <div class="input-group">
-                                <span class="input-group-addon "><i class="fa fa-key"></i></span>
-                                <input type="password" required="required" class="form-control " placeholder="Password">
-                            </div>
-                        </div>
-                    </form>
-                    <div class="forgot">
-                        <div class="login-check">
-                            <label class="checkbox1"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
-                        </div>
-                        <div class="login-para">
-                            <p><a href="#"> Forgot Password? </a></p>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <div class="login-btn">
-                        <input type="submit" value="Log in">
-                    </div>
-                    <div class="login-bottom">
-                        <p>With your social media account</p>
-                        <div class="social-icons">
-                            <div class="button">
-                                <a class="tw" href="#"> <i class="fa fa-twitter tw2"> </i><span>Twitter</span>
-                                    <div class="clearfix"> </div></a>
-                                <a class="fa" href="#"> <i class="fa fa-facebook tw2"> </i><span>Facebook</span>
-                                    <div class="clearfix"> </div></a>
-                                <a class="go" href="#"><i class="fa fa-google-plus tw2"> </i><span>Google+</span>
-                                    <div class="clearfix"> </div></a>
-                                <div class="clearfix"> </div>
-                            </div>
-                            <h4>Don,t have an Account? <a href="register.html"> Register Now!</a></h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h3>Features</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+            <h5>Requirements</h5>
+            <ul class="feature_list">
+                <li>There are many variations of passages of Lorem Ipsum available.</li>
+                <li>It is a long established fact that a reader.</li>
+                <li>Nulla rutrum nisi mi, iaculis commodo nibh lobortis sed.</li>
+                <li>Sed pulvinar, nunc vitae molestie dapibus, lacus dolor dignissim sapien.</li>
+                <li>Pellentesque ipsum ex, imperdiet quis consequat sed, consectetur ut ante.</li>
+                <li>Aliquam libero felis, mollis vitae elementum vel, bibendum eu tortor.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+            </ul>
+            <h5>Benefits</h5>
+            <ul class="feature_list">
+                <li>Aliquam rhoncus justo eget tellus scelerisque, at mollis mi aliquam.</li>
+                <li>Quisque pretium convallis pulvinar.</li>
+                <li>Nulla rutrum nisi mi, iaculis commodo nibh lobortis sed.</li>
+                <li>Sed pulvinar, nunc vitae molestie dapibus, lacus dolor dignissim sapien.</li>
+                <li>Pellentesque ipsum ex, imperdiet quis consequat sed, consectetur ut ante.</li>
+                <li>Aliquam libero felis, mollis vitae elementum vel, bibendum eu tortor.</li>
+                <li>Morbi rhoncus luctus interdum.</li>
+            </ul>
         </div>
         <div class="clearfix"> </div>
     </div>

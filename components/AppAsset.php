@@ -22,8 +22,10 @@ class AppAsset extends AssetBundle
     ];*/
     public $css = [
         '/web/template/jobs/css/bootstrap-3.1.1.min.css',
-        '/web/template/jobs/css/style.css',
         '/web/template/jobs/css/font-awesome.css',
+        '/vendor/bower/iCheck/skins/all.css',
+
+        '/web/template/jobs/css/style.css',
     ];
     /*public $js = [
         'web/js/all.min.js'
@@ -31,6 +33,10 @@ class AppAsset extends AssetBundle
     public $js = [
         '/web/template/jobs/js/bootstrap.min.js',
         '/web/template/jobs/js/jquery.flexisel.js',
+        '/web/template/jobs/js/jquery.wmuSlider.js',
+        '/vendor/bower/iCheck/icheck.min.js',
+
+        '/web/js/site.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

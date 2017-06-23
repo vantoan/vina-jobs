@@ -2898,6 +2898,17 @@ p.sm_1 {
     background-size: 184%;
   }
 }
+.error-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.error-actions {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.error-actions .btn {
+  margin-right: 10px;
+}
 @media (min-width: 1280px) and (max-width: 1366px) {
   .banner {
     min-height: 430px;

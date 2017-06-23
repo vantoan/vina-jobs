@@ -85,6 +85,59 @@ class SiteController extends BaseController
         ]);
     }
 
+    public function actionRegister()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->goBack();
+        }
+        return $this->render('register', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionJobs(){
+        return $this->render('jobs', []);
+    }
+    public function actionJobsSingle(){
+        return $this->render('jobs-single', []);
+    }
+
+    public function actionLocation(){
+        return $this->render('location', []);
+    }
+    public function actionLocationSingle(){
+        return $this->render('location-single', []);
+    }
+    public function actionRecruiters(){
+        return $this->render('recruiters', []);
+    }
+    public function actionFollowing(){
+        return $this->render('following', []);
+    }
+    public function actionFollowSingle(){
+        return $this->render('follow-single', []);
+    }
+    public function actionSingle(){
+        return $this->render('single', []);
+    }
+    public function actionTerms(){
+        return $this->render('terms', []);
+    }
+    public function actionServices(){
+        return $this->render('services', []);
+    }
+    public function actionResume(){
+        return $this->render('resume', []);
+    }
+    public function actionFeatures(){
+        return $this->render('features', []);
+    }
+
     /**
      * Logout action.
      *
@@ -93,7 +146,6 @@ class SiteController extends BaseController
     public function actionLogout()
     {
         Yii::$app->user->logout();
-
         return $this->goHome();
     }
 

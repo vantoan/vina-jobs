@@ -277,6 +277,17 @@ class Helper
     }
 
     /**
+     * @param string $andUrl
+     * @return string
+     */
+    public static function siteURLAnd($andUrl = '/'){
+        if($andUrl != '/'){
+            $andUrl = '/'.$andUrl;
+        }
+        return self::siteURL().$andUrl;
+    }
+
+    /**
      * Function used to create a slug associated to an "ugly" string.
      *
      * @param string $string the string to transform.
