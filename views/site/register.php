@@ -60,10 +60,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="col-md-9" class="form-control input-sm">
                             <div class="radios">
                                 <label for="radio-01" class="label_radio">
-                                    <input type="radio" checked=""> Male
+                                    <input type="radio" name="sex" class="icheck" checked> Male
                                 </label>
                                 <label for="radio-02" class="label_radio">
-                                    <input type="radio"> Female
+                                    <input type="radio" name="sex" class="icheck"> Female
                                 </label>
                             </div>
                         </div>
