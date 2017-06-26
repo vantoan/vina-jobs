@@ -2,13 +2,16 @@
 
 namespace app\controllers;
 
+use app\components\tona\Common;
 use app\models\Article;
 use app\models\News;
+use app\models\Users;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use yii\web\IdentityInterface;
 
 class SiteController extends BaseController
 {
@@ -32,7 +35,7 @@ class SiteController extends BaseController
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+//                    'logout' => ['post'],
                 ],
             ],
         ];
@@ -51,7 +54,17 @@ class SiteController extends BaseController
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
+            'auth' => [
+                'class' => 'yii\authclient\AuthAction',
+                'successCallback' => [$this, 'oAuthSuccess'],
+            ],
         ];
+    }
+
+    public function oAuthSuccess($client){
+        // get user data from client
+        $userAttributes = $client->getUserAttributes();
+        Users::workingWithFB($userAttributes);
     }
 
     /**
@@ -80,6 +93,7 @@ class SiteController extends BaseController
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         }
+
         return $this->render('login', [
             'model' => $model,
         ]);

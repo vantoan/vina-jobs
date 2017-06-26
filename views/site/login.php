@@ -129,6 +129,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         <p>With your social media account</p>
                         <div class="social-icons">
                             <div class="button">
+                                <?= yii\authclient\widgets\AuthChoice::widget([
+                                    'baseAuthUrl' => ['site/auth']
+                                ]) ?>
                                 <a class="tw" href="#"> <i class="fa fa-twitter tw2"> </i><span>Twitter</span>
                                     <div class="clearfix"> </div></a>
                                 <a class="fa" href="#"> <i class="fa fa-facebook tw2"> </i><span>Facebook</span>
@@ -137,7 +140,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div class="clearfix"> </div></a>
                                 <div class="clearfix"> </div>
                             </div>
-                            <h4>Don,t have an Account? <a href="register.html"> Register Now!</a></h4>
+                            <h4>Don't have an Account ? <a href="register.html"> Register Now!</a></h4>
                         </div>
                     </div>
                 </div>

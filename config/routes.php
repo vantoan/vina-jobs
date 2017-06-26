@@ -23,6 +23,7 @@ return [
     'resume.html'                                                  => 'site/resume',
     'features.html'                                                  => 'site/features',
     'about.html'                                                  => 'site/about',
+    'logout.html'                                                  => 'site/logout',
 
 
 ];

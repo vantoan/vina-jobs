@@ -6,8 +6,18 @@ use app\components\tona\Cons;
 use yii\base\Security;
 use yii\web\IdentityInterface;
 
-class Users extends \app\models\Base\TnUsers implements IdentityInterface
+class Users extends \app\models\Base\TnUser implements IdentityInterface
 {
+
+    const
+        USER_TYPE_EMPLOYER = 1,
+        USER_TYPE_JOBSEEKERS = 1,
+        USER_TYPE_SYSTEMS = 2,
+
+        APP_TYPE_FB = 3,
+        APP_TYPE_GOOGLE = 4,
+        APP_TYPE_TWITTER = 5;
+
 
     public $slug_name;
     public $new_password;
@@ -145,4 +155,25 @@ class Users extends \app\models\Base\TnUsers implements IdentityInterface
         $this->password_reset_token = null;
     }
     /** EXTENSION MOVIE **/
+
+    public static function workingWithFB($client){
+        $user = Users::findOne(['username' => $client['email']]);
+        if(!$user){
+            $user = new Users();
+        }
+
+        $pass_default = rand(11111, 99999);
+        $user->name = $client['name'];
+        $user->username = $client['email'];
+        $user->setPassword($pass_default);
+        $user->user_type = self::USER_TYPE_JOBSEEKERS;
+        $user->app_id = $client['id'];
+        $user->app_type = self::APP_TYPE_FB;
+        $user->auth_key = "$pass_default";
+        $user->slug_name = "$pass_default";
+        if($user->save()){
+            UsersDetail::insertUserDetail($client, $user->id);
+            return \Yii::$app->user->login($user,  3600*24*30);
+        }
+    }
 }

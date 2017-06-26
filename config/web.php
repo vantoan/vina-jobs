@@ -21,8 +21,10 @@ $config = [
                 ],*/
                 'facebook' => [
                     'class' => 'yii\authclient\clients\Facebook',
+                    'authUrl' => 'https://www.facebook.com/dialog/oauth?display=popup',
                     'clientId' => '592988894149611',
                     'clientSecret' => 'c081d2c7c8d11c94a183dbfcc435ca0b',
+                    'attributeNames' => ['name', 'email', 'first_name', 'last_name'],
                 ],
                 // etc.
             ],

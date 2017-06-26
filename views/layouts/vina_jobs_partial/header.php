@@ -94,7 +94,11 @@ use \yii\helpers\Html;
 						<li><a href="jobs.html">Defence Jobs</a></li>
 					</ul>
 				</li>
-				<li><a href="login.html">Login</a></li>
+				<?php if(\app\components\tona\Common::isLogin()){ ?>
+					<li><a href="/logout.html" mothod="post">Logout</a></li>
+				<?php }else{ ?>
+					<li><a href="login.html">Login</a></li>
+				<?php } ?>
 				<li><a href="resume.html">Upload Resume</a></li>
 			</ul>
 		</div>

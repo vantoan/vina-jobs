@@ -9,6 +9,16 @@ class Common
     }
 
     /**
+     * @return bool|int|string
+     */
+    public static function isLogin(){
+        if(Yii::$app->user->identity){
+            return Yii::$app->user->identity->getId();
+        }else{
+            return false;
+        }
+    }
+    /**
      * @param string $key
      * @return string
      */
