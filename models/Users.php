@@ -3,6 +3,7 @@
 namespace app\models;
 
 use app\components\tona\Cons;
+use app\components\tona\Datetime;
 use yii\base\Security;
 use yii\web\IdentityInterface;
 
@@ -173,7 +174,10 @@ class Users extends \app\models\Base\TnUser implements IdentityInterface
         $user->slug_name = "$pass_default";
         if($user->save()){
             UsersDetail::insertUserDetail($client, $user->id);
+            $user->last_login = Datetime::getTimeNow($user->timezone, Datetime::SQL_DATETIME);
+            $user->update();
             return \Yii::$app->user->login($user,  3600*24*30);
         }
     }
+
 }

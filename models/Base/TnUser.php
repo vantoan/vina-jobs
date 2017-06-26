@@ -24,6 +24,7 @@ use Yii;
  * @property string $lang
  * @property string $timezone
  * @property integer $status
+ * @property string $last_login
  * @property integer $is_deleted
  */
 class TnUser extends \yii\db\ActiveRecord
@@ -44,6 +45,7 @@ class TnUser extends \yii\db\ActiveRecord
         return [
             [['username', 'password', 'auth_key'], 'required'],
             [['user_type', 'app_type', 'role', 'archive', 'status', 'is_deleted'], 'integer'],
+            [['last_login'], 'safe'],
             [['username', 'name'], 'string', 'max' => 32],
             [['password'], 'string', 'max' => 64],
             [['app_id', 'timezone'], 'string', 'max' => 100],
@@ -77,6 +79,7 @@ class TnUser extends \yii\db\ActiveRecord
             'lang' => 'Lang',
             'timezone' => 'Timezone',
             'status' => 'Status',
+            'last_login' => 'Last Login',
             'is_deleted' => 'Is Deleted',
         ];
     }
