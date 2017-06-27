@@ -3,7 +3,9 @@
 namespace app\controllers;
 
 use app\components\tona\Common;
+use app\forms\RegisterForm;
 use app\models\Article;
+use app\models\Locations;
 use app\models\News;
 use app\models\Users;
 use Yii;
@@ -11,6 +13,7 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
 
 class SiteController extends BaseController
@@ -111,9 +114,9 @@ class SiteController extends BaseController
             return $this->goHome();
         }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+        $model = new RegisterForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->save();
         }
         return $this->render('register', [
             'model' => $model,

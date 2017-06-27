@@ -12,11 +12,10 @@ use app\models\UsersDetail;
 use Yii;
 use yii\base\Model;
 
-class RegisterForm extends Model
+class RegisterForm extends Users
 {
     public $first_name;
     public $last_name;
-    public $email;
     public $password;
     public $repeat_password;
 
@@ -25,6 +24,8 @@ class RegisterForm extends Model
 
     public $gender;
     public $slug_name;
+    public $about;
+    public $country;
     public $type; // 1: Nhà tuy?n d?ng, 2: ng??i tìm vi?c
 
     /**
@@ -34,15 +35,13 @@ class RegisterForm extends Model
     {
         return [
             // username and password are both required
-            [['first_name', 'last_name','email', 'password', 'repeat_password'], 'required'],
-            [['email'], 'email', 'message' => 'This email khong dung.'],
-            /*[['email'], 'unique'],
-            ['email', 'unique', 'targetClass' => 'app\models\Base\TnUser', 'targetAttribute' => 'username', 'message' => 'This email has already been taken.'],*/
-            [['email'], 'unique'],
-            ['email', 'emailValidate'],
+            [['first_name', 'last_name','username', 'password'], 'required'],
+            [['username'], 'email'],
+            [['username'], 'unique'],
+//            ['username', 'unique', 'targetClass' => 'app\models\Base\TnUser', 'targetAttribute' => 'username', 'message' => 'This email has already been taken.'],
+            ['username', 'emailValidate'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
-            ['repeat_password', 'compare', 'compareAttribute'=>'password'],
         ];
     }
 
@@ -59,7 +58,7 @@ class RegisterForm extends Model
     public function emailValidate(){
         $user = Users::findByUsername($this->username);
         if ($user) {
-            $this->addError('email', 'Incorrect email.');
+            $this->addError('username', 'Incorrect email.');
         }
     }
 
