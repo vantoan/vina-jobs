@@ -129,14 +129,16 @@ $this->params['breadcrumbs'][] = $this->title;
                         <p>With your social media account</p>
                         <div class="social-icons">
                             <div class="button">
-                                <?= yii\authclient\widgets\AuthChoice::widget([
-                                    'baseAuthUrl' => ['site/auth']
-                                ]) ?>
-                                <a class="tw" href="#"> <i class="fa fa-twitter tw2"> </i><span>Twitter</span>
+                                <?php  echo yii\authclient\widgets\AuthChoice::widget(['baseAuthUrl' => ['site/auth']]); ?>
+
+                                <a class="tw twitter auth-link" href="/site/auth?authclient=twitter" title="Twitter">
+                                    <i class="fa fa-twitter tw2"> </i><span>Twitter</span>
                                     <div class="clearfix"> </div></a>
-                                <a class="fa" href="#"> <i class="fa fa-facebook tw2"> </i><span>Facebook</span>
+                                <a class="fa facebook auth-link" href="/site/auth?authclient=facebook" title="Facebook" data-popup-width="860" data-popup-height="480"
+                                    <i class="fa fa-facebook tw2"> </i><span>Facebook</span>
                                     <div class="clearfix"> </div></a>
-                                <a class="go" href="#"><i class="fa fa-google-plus tw2"> </i><span>Google+</span>
+                                <a class="go google auth-link" href="/site/auth?authclient=google" title="Google">
+                                    <i class="fa fa-google-plus tw2"> </i><span>Google+</span>
                                     <div class="clearfix"> </div></a>
                                 <div class="clearfix"> </div>
                             </div>

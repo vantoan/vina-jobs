@@ -32,4 +32,29 @@ class UsersDetail extends \app\models\Base\TnUserDetails
             $model->save();
         }
     }
+
+    public static function insertUserDetailTW($client, $user_id){
+        if($client){
+            $model = UsersDetail::find()->where(['user_id' => $user_id])->one();
+            if(!$model){
+                $model = new UsersDetail();
+            }
+            $n = explode(' ', $client['name']);
+            $fn = '';
+            $ln = '';
+            if(count($n) > 1){
+                $fn = $n[0];
+                $ln = $n[count($n) - 1];
+            }
+
+            $model->user_id = $user_id;
+            $model->email = '';
+            $model->fullname = $client['name'];
+            $model->first_name = $fn;
+            $model->last_name = $ln;
+            $model->profile_image_url = $client['profile_image_url'];
+            $model->profile_image_url_https = $client['profile_image_url_https'];
+            $model->save();
+        }
+    }
 }

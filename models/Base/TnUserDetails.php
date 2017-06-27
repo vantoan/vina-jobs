@@ -18,6 +18,8 @@ use Yii;
  * @property string $phone
  * @property string $address
  * @property string $changed_password_date
+ * @property string $profile_image_url
+ * @property string $profile_image_url_https
  * @property integer $job_title_id
  * @property integer $direct_manager_id
  * @property integer $city_id
@@ -47,7 +49,7 @@ class TnUserDetails extends \yii\db\ActiveRecord
             [['birthday', 'changed_password_date', 'registration_date', 'approved_at'], 'safe'],
             [['email', 'address'], 'string', 'max' => 255],
             [['first_name', 'middle_name', 'last_name'], 'string', 'max' => 50],
-            [['fullname'], 'string', 'max' => 150],
+            [['fullname', 'profile_image_url', 'profile_image_url_https'], 'string', 'max' => 150],
             [['phone'], 'string', 'max' => 11],
         ];
     }
@@ -69,6 +71,8 @@ class TnUserDetails extends \yii\db\ActiveRecord
             'phone' => 'Phone',
             'address' => 'Address',
             'changed_password_date' => 'Changed Password Date',
+            'profile_image_url' => 'Profile Image Url',
+            'profile_image_url_https' => 'Profile Image Url Https',
             'job_title_id' => 'Job Title ID',
             'direct_manager_id' => 'Direct Manager ID',
             'city_id' => 'City ID',

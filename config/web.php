@@ -14,17 +14,25 @@ $config = [
         'authClientCollection' => [
             'class' => 'yii\authclient\Collection',
             'clients' => [
-                /*'google' => [
+                'google' => [
                     'class' => 'yii\authclient\clients\Google',
                     'clientId' => '835202725290-6h2tmgc9kh1e8fjog0lcvta9gttt0n0b.apps.googleusercontent.com',
                     'clientSecret' => 'DJrk2vYAiTgPDG0512L3a3tU',
-                ],*/
+                ],
                 'facebook' => [
                     'class' => 'yii\authclient\clients\Facebook',
                     'authUrl' => 'https://www.facebook.com/dialog/oauth?display=popup',
                     'clientId' => '592988894149611',
                     'clientSecret' => 'c081d2c7c8d11c94a183dbfcc435ca0b',
                     'attributeNames' => ['name', 'email', 'first_name', 'last_name'],
+                ],
+                'twitter' => [
+                    'class' => 'yii\authclient\clients\Twitter',
+                        'attributeParams' => [
+                            'include_email' => 'true'
+                        ],
+                    'consumerKey' => 'KQ3PQvbdCahcywwd5OXr0eftp',
+                    'consumerSecret' => 'SBUUIMqmITWPYFiqFUaN5a3N1KF3b1YGFH37jHfbniVQalfPes',
                 ],
                 // etc.
             ],

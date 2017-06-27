@@ -168,7 +168,7 @@ class Users extends \app\models\Base\TnUser implements IdentityInterface
         $user->username = $client['email'];
         $user->setPassword($pass_default);
         $user->user_type = self::USER_TYPE_JOBSEEKERS;
-        $user->app_id = $client['id'];
+        $user->app_id = "{$client['id']}";
         $user->app_type = self::APP_TYPE_FB;
         $user->auth_key = "$pass_default";
         $user->slug_name = "$pass_default";
@@ -177,6 +177,36 @@ class Users extends \app\models\Base\TnUser implements IdentityInterface
             $user->last_login = Datetime::getTimeNow($user->timezone, Datetime::SQL_DATETIME);
             $user->update();
             return \Yii::$app->user->login($user,  3600*24*30);
+        }
+    }
+
+    public static function workingWithTW($client){
+        $user = Users::findOne(['app_id' => $client['id'], 'app_type' => Users::APP_TYPE_TWITTER]);
+        if(!$user){
+            $user = new Users();
+        }
+
+        $pass_default = rand(11111, 99999);
+        $user->name = $client['name'];
+        $user->username = $client['screen_name'];
+        $user->setPassword($pass_default);
+        $user->user_type = self::USER_TYPE_JOBSEEKERS;
+        $user->app_id = "{$client['id']}";
+        $user->app_type = self::APP_TYPE_TWITTER;
+        $user->auth_key = "$pass_default";
+        $user->timezone = $client['time_zone'];
+        $user->lang = $client['lang'];
+        $user->slug_name = "$pass_default";
+        if($user->save()){
+            UsersDetail::insertUserDetailTW($client, $user->id);
+            $user->last_login = Datetime::getTimeNow(null, Datetime::SQL_DATETIME);
+            $user->update();
+            return \Yii::$app->user->login($user,  3600*24*30);
+        }else{
+            echo '<pre>';
+            print_r($user->getErrors());
+            echo '</pre>';
+            die;
         }
     }
 

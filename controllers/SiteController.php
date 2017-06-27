@@ -64,7 +64,13 @@ class SiteController extends BaseController
     public function oAuthSuccess($client){
         // get user data from client
         $userAttributes = $client->getUserAttributes();
-        Users::workingWithFB($userAttributes);
+        $authclient = $this->request()->get('authclient');
+        if($authclient && $authclient == 'facebook'){
+            return Users::workingWithFB($userAttributes);
+        }
+        if($authclient && $authclient == 'twitter'){
+            return Users::workingWithTW($userAttributes);
+        }
     }
 
     /**
