@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\components\tona\Common;
+use app\components\tona\Datetime;
 use app\forms\RegisterForm;
 use app\models\Article;
 use app\models\Locations;
@@ -116,11 +117,18 @@ class SiteController extends BaseController
 
         $model = new RegisterForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            $model->save();
+            $model->app_type = Users::APP_TYPE_WEB;
+            $model->created_date = Datetime::getDateNow(Datetime::SQL_DATETIME);
+            if($model->save()){
+                return $this->redirect('/register-success.html');
+            }
         }
         return $this->render('register', [
             'model' => $model,
         ]);
+    }
+    public function actionRegisterSuccess(){
+        return $this->render('register-success');
     }
 
     public function actionJobs(){

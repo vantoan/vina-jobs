@@ -9,6 +9,7 @@ return [
 
     'login.html'                                                        => 'site/login',
     'register.html'                                                     => 'site/register',
+    'register-success.html'                                                     => 'site/register-success',
     'contact.html'                                                      => 'site/contact',
     'jobs.html'                                                         => 'site/jobs',
     'jobs-single.html'                                                  => 'site/jobs-single',

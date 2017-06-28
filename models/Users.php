@@ -15,6 +15,7 @@ class Users extends \app\models\Base\TnUser implements IdentityInterface
         USER_TYPE_JOBSEEKERS = 1,
         USER_TYPE_SYSTEMS = 2,
 
+        APP_TYPE_WEB = 1,
         APP_TYPE_FB = 3,
         APP_TYPE_GOOGLE = 4,
         APP_TYPE_TWITTER = 5;

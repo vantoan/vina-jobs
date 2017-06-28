@@ -14,18 +14,7 @@ use yii\base\Model;
 
 class RegisterForm extends Users
 {
-    public $first_name;
-    public $last_name;
-    public $password;
-    public $repeat_password;
-
-    public $birthday;
-    public $phone;
-
-    public $gender;
     public $slug_name;
-    public $about;
-    public $country;
     public $type; // 1: Nhà tuy?n d?ng, 2: ng??i tìm vi?c
 
     /**
