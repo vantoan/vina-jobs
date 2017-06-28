@@ -120,11 +120,14 @@ class SiteController extends BaseController
             $model->app_type = Users::APP_TYPE_WEB;
             $model->created_date = Datetime::getDateNow(Datetime::SQL_DATETIME);
             if($model->save()){
+                $model->access_token = Yii::$app->security->generateRandomString();
+                Yii::$app->session->set('email', 'abc@gmail.com');
                 return $this->redirect('/register-success.html');
             }
         }
         return $this->render('register', [
             'model' => $model,
+            'email' => Yii::$app->session->get('email')
         ]);
     }
     public function actionRegisterSuccess(){
