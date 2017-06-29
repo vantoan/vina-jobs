@@ -24,6 +24,7 @@ class AppAsset extends AssetBundle
         '/web/template/jobs/css/bootstrap-3.1.1.min.css',
         '/web/template/jobs/css/font-awesome.css',
         '/vendor/bower/iCheck/skins/all.css',
+        '/vendor/bower/select2/dist/css/select2.min.css',
 
         '/web/template/jobs/css/style.css',
     ];
@@ -37,6 +38,8 @@ class AppAsset extends AssetBundle
         '/vendor/bower/iCheck/icheck.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js',
+
+        '/vendor/bower/select2/dist/js/select2.min.js',
 
         '/web/js/site.js',
     ];

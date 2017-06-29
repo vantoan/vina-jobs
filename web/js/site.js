@@ -22,7 +22,7 @@ var Site = function () {
                 checkboxClass: 'icheckbox_flat-red',
                 radioClass: 'iradio_flat-red'
             });
-
+            $('.select2').select2();
             // add the animation to the popover
             $('a[rel=popover]').popover().click(function(e) {
                 e.preventDefault();

@@ -1,7 +1,57 @@
+.form-required {
+  color: #f15f43;
+}
 .button a {
   border-radius: 0;
 }
 .button a:hover {
   text-decoration: none;
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+input.btn.btn-primary.btn-sm {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+form .form-control {
+  border-radius: 0;
+  webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+form .form-group label {
+  line-height: 30px;
+}
+form .form-group .help-block {
+  font-size: 12px;
+  color: #f15f43;
+  margin-bottom: 0;
+  margin-top: 3px;
+  position: absolute;
+}
+form .field-registerform-gender {
+  margin-bottom: 0;
+}
+form .field-registerform-gender label {
+  margin-left: 0;
+}
+.select2-container--default .select2-selection--single {
+  border-radius: 0;
+  border-color: #ccc;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #555;
+  height: 32px;
+  line-height: 32px;
+  padding-left: 12px;
+  webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 32px;
+}
+.select2-container .select2-selection--single {
+  height: 34px;
 }

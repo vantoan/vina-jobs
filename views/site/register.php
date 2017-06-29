@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			<?php $form = ActiveForm::begin(); ?>
 			<div class="row">
 				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for="firstName">First Name</label>
+					<label class="col-md-3 control-lable" for="firstName">First Name <span class="form-required">*</span></label>
 
 					<div class="col-md-9">
 						<?= $form->field($model, 'first_name')->textInput()->label(false) ?>
@@ -120,7 +120,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						<?php
 						$country = \yii\helpers\ArrayHelper::map(\app\models\Locations::getList(), 'id', 'name');
 						echo $form->field($model, 'country_id')->dropDownList($country,
-							['prompt' => '-- Select --']
+							['prompt' => '-- Select --', 'class' => 'form-control select2']
 						)->label(false);
 						?>
 
@@ -135,7 +135,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						<?php
 						$country = \yii\helpers\ArrayHelper::map(\app\models\JobWorkExperience::getList(), 'id', 'name');
 						echo $form->field($model, 'work_experience_id')->dropDownList($country,
-							['prompt' => '-- Select --']
+							['prompt' => '-- Select --', 'class' => 'form-control select2']
 						)->label(false);
 						?>
 					</div>

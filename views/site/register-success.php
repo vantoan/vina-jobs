@@ -105,7 +105,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						</div>
 					</form>
 					<div class="forgot">
-						<p>An email has been sent to your email address. Please check your email and follow the instructions to activate your account to continue using. <b>Thank you vary much !</b></p>
+						<p>An email has been sent to your email address. Please check your email and follow the instructions to activate your account to continue using. <b>Thank you very much !</b></p>
 					</div>
 
 					<div class="login-bottom">
