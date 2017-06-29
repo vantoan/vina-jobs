@@ -15,6 +15,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
 use yii\web\IdentityInterface;
 
 class SiteController extends BaseController
@@ -116,10 +117,12 @@ class SiteController extends BaseController
         }
 
         $model = new RegisterForm();
+        Users::updateToUserDetail();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->app_type = Users::APP_TYPE_WEB;
             $model->created_date = Datetime::getDateNow(Datetime::SQL_DATETIME);
             if($model->save()){
+                Users::updateToUserDetail();
                 $model->access_token = Yii::$app->security->generateRandomString();
                 Yii::$app->session->set('email', 'abc@gmail.com');
                 return $this->redirect('/register-success.html');

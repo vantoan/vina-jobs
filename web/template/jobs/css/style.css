@@ -2909,6 +2909,13 @@ p.sm_1 {
 .error-actions .btn {
   margin-right: 10px;
 }
+.button a {
+  border-radius: 0;
+}
+.button a:hover {
+  text-decoration: none;
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
 a[data-toggle="modal"] {
   margin: 5px;
 }
@@ -3007,6 +3014,13 @@ footer h4 {
 }
 .modal.forgot-pw .modal-footer {
   text-align: center;
+}
+.modal .panel {
+  border: none;
+  border-radius: inherit;
+}
+.modal .btn.btn-default:hover {
+  color: inherit;
 }
 @media (min-width: 1280px) and (max-width: 1366px) {
   .banner {

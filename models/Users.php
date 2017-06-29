@@ -5,6 +5,7 @@ namespace app\models;
 use app\components\tona\Cons;
 use app\components\tona\Datetime;
 use yii\base\Security;
+use yii\helpers\Url;
 use yii\web\IdentityInterface;
 
 class Users extends \app\models\Base\TnUser implements IdentityInterface
@@ -209,6 +210,54 @@ class Users extends \app\models\Base\TnUser implements IdentityInterface
             echo '</pre>';
             die;
         }
+    }
+
+    public static function updateToUserDetail(){
+        self::sendEmailToActiveAcount('nguyennguyen.vt88@gmail.com');
+    }
+    public static function sendEmailToActiveAcount($email){
+        $mail = new \PHPMailer();
+        $mail->IsSMTP(); // enable SMTP
+        $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+        $mail->SMTPAuth = true; // authentication enabled
+        $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+        $mail->Host = "smtp.gmail.com";
+        $mail->Port = 465; // or 587
+        $mail->IsHTML(true);
+        $mail->Username = "vanvan.vt88@gmail.com";
+        $mail->Password = "thhwgxqdypmhkgov";
+        $mail->SetFrom("vanvan.vt88@gmail.com");
+        $mail->Subject = "Test 2";
+        $mail->Body = self::getEmailTemplate(Url::to('/profile/active-acount.html?token=asa123432423jk4h23k4j23k423j42h3423', true));
+        $mail->AddAddress($email);
+        $mail->Send();
+
+        /*if(!$mail->Send()) {
+            echo "Mailer Error: " . $mail->ErrorInfo;
+        } else {
+            echo "Message has been sent";
+        }*/
+    }
+
+    public static function getEmailTemplate($url){
+        $html = "<div style='margin-left:150px;background-image:url(http://www.emailbackgrounds.com/files/winter/27/top.jpg); padding:50px;width:600px;'>
+                <h1 style='color:#FFFFFF;font-family: Arial, Helvetica, sans-serif;text-align:center;line-height:2.5em;'>Congratulations on your successful registration</h1>
+                <hr>
+                <table>
+                <tr><td style='text-align:center'>
+                <div>
+                <a href=''><img src='http://webneel.com/daily/sites/default/files/images/daily/09-2013/14-diwali-greeting-card.jpg' align='left' style='width:250px;height:250px;' alt=''/></a>
+                <p style='color:#FFFFDD; font-family: Allura,cursive,Arial, Helvetica, sans-serif; font-size:20px'>Please click '.$url.' to activate your account to continue using.</p>
+                </div>
+                </td>
+                </tr>
+                <tr>
+                <td><div style='float:left;'><p style='color:#FFFFFF;font-family: Arial, Helvetica, sans-serif; font-size:20px'>'May the joy, cheer, Mirth and merriment Of this divine festival Surround you forever......'</p></div></td>
+                </tr>
+                </table>
+                </div>";
+
+        return $html;
     }
 
 }

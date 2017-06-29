@@ -97,3 +97,10 @@ footer h4 {
 .modal.forgot-pw .modal-footer {
   text-align: center;
 }
+.modal .panel {
+  border: none;
+  border-radius: inherit;
+}
+.modal .btn.btn-default:hover {
+  color: inherit;
+}
