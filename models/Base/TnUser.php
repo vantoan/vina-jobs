@@ -36,7 +36,9 @@ use Yii;
  * @property string $timezone
  * @property integer $status
  * @property string $created_date
+ * @property integer $is_actived
  * @property string $actived_date
+ * @property string $actived_token
  * @property string $last_login
  * @property integer $is_deleted
  */
@@ -57,7 +59,7 @@ class TnUser extends \yii\db\ActiveRecord
     {
         return [
             [['username', 'password', 'auth_key'], 'required'],
-            [['user_type', 'app_type', 'role', 'archive', 'gender', 'work_experience_id', 'education_id', 'country_id', 'status', 'is_deleted'], 'integer'],
+            [['user_type', 'app_type', 'role', 'archive', 'gender', 'work_experience_id', 'education_id', 'country_id', 'status', 'is_actived', 'is_deleted'], 'integer'],
             [['date_of_birth', 'created_date', 'actived_date', 'last_login'], 'safe'],
             [['about_me'], 'string'],
             [['username'], 'string', 'max' => 32],
@@ -68,6 +70,7 @@ class TnUser extends \yii\db\ActiveRecord
             [['auth_key', 'access_token', 'password_reset_token'], 'string', 'max' => 128],
             [['lang'], 'string', 'max' => 5],
             [['mobile_number'], 'string', 'max' => 15],
+            [['actived_token'], 'string', 'max' => 255],
             [['access_token'], 'unique'],
         ];
     }
@@ -107,7 +110,9 @@ class TnUser extends \yii\db\ActiveRecord
             'timezone' => 'Timezone',
             'status' => 'Status',
             'created_date' => 'Created Date',
+            'is_actived' => 'Is Actived',
             'actived_date' => 'Actived Date',
+            'actived_token' => 'Actived Token',
             'last_login' => 'Last Login',
             'is_deleted' => 'Is Deleted',
         ];

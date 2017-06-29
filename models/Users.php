@@ -4,6 +4,7 @@ namespace app\models;
 
 use app\components\tona\Cons;
 use app\components\tona\Datetime;
+use app\components\tona\Helper;
 use yii\base\Security;
 use yii\helpers\Url;
 use yii\web\IdentityInterface;
@@ -19,7 +20,11 @@ class Users extends \app\models\Base\TnUser implements IdentityInterface
         APP_TYPE_WEB = 1,
         APP_TYPE_FB = 3,
         APP_TYPE_GOOGLE = 4,
-        APP_TYPE_TWITTER = 5;
+        APP_TYPE_TWITTER = 5,
+
+        USER_STATUS_REGISTER = 0,
+        USER_STATUS_ACTIVE = 1,
+        USER_STATUS_DISABLED = 2;
 
 
     public $slug_name;
@@ -212,10 +217,18 @@ class Users extends \app\models\Base\TnUser implements IdentityInterface
         }
     }
 
-    public static function updateToUserDetail(){
-        self::sendEmailToActiveAcount('nguyennguyen.vt88@gmail.com');
+    public static function updateToUserDetail($user_id, $dataForm = []){
+        $token = \Yii::$app->security->generateRandomKey();
+        $user = Users::findOne($user_id);
+        $user->status = self::USER_STATUS_REGISTER;
+        $user->access_token = $token;
+        $user->update();
+
+        $data = $dataForm['RegisterForm'];
+        self::sendEmailToActiveAcount($data['username'], $token);
     }
-    public static function sendEmailToActiveAcount($email){
+
+    public static function sendEmailToActiveAcount($to_email, $token = ''){
         $mail = new \PHPMailer();
         $mail->IsSMTP(); // enable SMTP
         $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
@@ -227,9 +240,9 @@ class Users extends \app\models\Base\TnUser implements IdentityInterface
         $mail->Username = "vanvan.vt88@gmail.com";
         $mail->Password = "thhwgxqdypmhkgov";
         $mail->SetFrom("vanvan.vt88@gmail.com");
-        $mail->Subject = "Test 2";
-        $mail->Body = self::getEmailTemplate(Url::to('/profile/active-acount.html?token=asa123432423jk4h23k4j23k423j42h3423', true));
-        $mail->AddAddress($email);
+        $mail->Subject = "Congratulations on your successful registration";
+        $mail->Body = self::getEmailTemplate(Url::to("/profile/active-acount.html?token=$token", true));
+        $mail->AddAddress($to_email);
         $mail->Send();
 
         /*if(!$mail->Send()) {
@@ -240,23 +253,10 @@ class Users extends \app\models\Base\TnUser implements IdentityInterface
     }
 
     public static function getEmailTemplate($url){
-        $html = "<div style='margin-left:150px;background-image:url(http://www.emailbackgrounds.com/files/winter/27/top.jpg); padding:50px;width:600px;'>
-                <h1 style='color:#FFFFFF;font-family: Arial, Helvetica, sans-serif;text-align:center;line-height:2.5em;'>Congratulations on your successful registration</h1>
-                <hr>
-                <table>
-                <tr><td style='text-align:center'>
-                <div>
-                <a href=''><img src='http://webneel.com/daily/sites/default/files/images/daily/09-2013/14-diwali-greeting-card.jpg' align='left' style='width:250px;height:250px;' alt=''/></a>
-                <p style='color:#FFFFDD; font-family: Allura,cursive,Arial, Helvetica, sans-serif; font-size:20px'>Please click '.$url.' to activate your account to continue using.</p>
-                </div>
-                </td>
-                </tr>
-                <tr>
-                <td><div style='float:left;'><p style='color:#FFFFFF;font-family: Arial, Helvetica, sans-serif; font-size:20px'>'May the joy, cheer, Mirth and merriment Of this divine festival Surround you forever......'</p></div></td>
-                </tr>
-                </table>
-                </div>";
-
+        $html = file_get_contents(\Yii::$app->basePath.'/mail/layouts/email-register.html');
+        $html = str_replace('{name}', 'Tona Nguyen', $html);
+        $html = str_replace('{url}', $url, $html);
+        $html = str_replace('{site_url}', Helper::siteURL(), $html);
         return $html;
     }
 

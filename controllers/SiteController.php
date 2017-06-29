@@ -117,14 +117,11 @@ class SiteController extends BaseController
         }
 
         $model = new RegisterForm();
-        Users::updateToUserDetail();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->app_type = Users::APP_TYPE_WEB;
             $model->created_date = Datetime::getDateNow(Datetime::SQL_DATETIME);
             if($model->save()){
-                Users::updateToUserDetail();
-                $model->access_token = Yii::$app->security->generateRandomString();
-                Yii::$app->session->set('email', 'abc@gmail.com');
+                Users::updateToUserDetail($model->getId(), Yii::$app->request->post());
                 return $this->redirect('/register-success.html');
             }
         }
