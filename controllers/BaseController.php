@@ -9,6 +9,7 @@
 namespace app\controllers;
 
 use app\components\LogSystemWidget;
+use app\components\tona\Cons;
 use app\models\Setting;
 use Yii;
 use yii\web\Controller;
@@ -17,14 +18,11 @@ class BaseController extends Controller
 {
     public $getSetting;
 	public function init(){
-		parent::init();
-		$this->layout = 'vina-jobs';
+		$this->layout = Cons::TEMPLATE_JOBS;
 
-		/*if(Yii::$app->user->isGuest){
-			return $this->redirect(['/admin/login/login']);
-		}else{
+		if(!Yii::$app->user->isGuest){
             $this->setSetting();
-        }*/
+        }
 	}
 
     /**

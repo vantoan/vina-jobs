@@ -7,7 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Login';
+$this->title = 'Forgot password';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -70,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <span class="seeking-answer-span">Frequently</span>
                         </label>
 		    		</span>
-			    	<span class="seeking-answer-group">
+                        <span class="seeking-answer-group">
 		    			<span class="seeking-answer-input">
 		    			   <input class="seeking-radiobutton icheck" name="survey" type="radio">
 		    			</span>
@@ -78,7 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <span class="seeking-answer-span">Interviewing</span>
                         </label>
 		    		</span>
-			        <span class="seeking-answer-group">
+                        <span class="seeking-answer-group">
 		    			<span class="seeking-answer-input">
 		    			   <input class="seeking-radiobutton icheck" name="survey" type="radio">
 		    			</span>
@@ -98,33 +98,46 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="login-content">
                     <form>
                         <div class="section-title">
-                            <h3>LogIn to your Account</h3>
+                            <h3>Create New Password</h3>
                         </div>
-                        <div class="textbox-wrap">
-                            <div class="input-group">
-                                <span class="input-group-addon "><i class="fa fa-user"></i></span>
-                                <input type="text" required="required" class="form-control" placeholder="Username">
-                            </div>
-                        </div>
-                        <div class="textbox-wrap">
-                            <div class="input-group">
-                                <span class="input-group-addon "><i class="fa fa-key"></i></span>
-                                <input type="password" required="required" class="form-control " placeholder="Password">
-                            </div>
+                            <div class="panel panel-info">
+                                <div class="panel-body">
+                                    <form id="signupform" class="form-horizontal" role="form">
+                                        <div class="form-group">
+                                            <label for="email" class=" control-label col-sm-3">Registered email</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" name="email" placeholder="Please input your email used to register with us">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email" class=" control-label col-sm-3">New password</label>
+                                            <div class="col-sm-9">
+                                                <input type="password" class="form-control" name="password" placeholder="Create your new password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email" class=" control-label col-sm-3">Confirm password</label>
+                                            <div class="col-sm-9">
+                                                <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm your new password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <!-- Button -->
+                                            <div class="  col-sm-offset-3 col-sm-9">
+                                                <button id="btn-signup" type="button" class="btn btn-success">Submit</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                         </div>
                     </form>
                     <div class="forgot">
-                        <div class="login-check">
-                            <label class="checkbox1"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
-                        </div>
                         <div class="login-para">
-                            <p><a href="#" data-toggle="modal" data-target="#forgot-pw"> Forgot Password ? </a></p>
+                            <p><a href="#"> Resend email to me ! </a></p>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
-                    <div class="login-btn">
-                        <input type="submit" value="Log in">
-                    </div>
+
                     <div class="login-bottom">
                         <p>With your social media account</p>
                         <div class="social-icons">
@@ -135,8 +148,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <i class="fa fa-twitter tw2"> </i><span>Twitter</span>
                                     <div class="clearfix"> </div></a>
                                 <a class="fa facebook auth-link" href="/site/auth?authclient=facebook" title="Facebook" data-popup-width="860" data-popup-height="480"
-                                    <i class="fa fa-facebook tw2"> </i><span>Facebook</span>
-                                    <div class="clearfix"> </div></a>
+                                <i class="fa fa-facebook tw2"> </i><span>Facebook</span>
+                                <div class="clearfix"> </div></a>
                                 <a class="go google auth-link" href="/site/auth?authclient=google" title="Google">
                                     <i class="fa fa-google-plus tw2"> </i><span>Google+</span>
                                     <div class="clearfix"> </div></a>
@@ -149,41 +162,5 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
         <div class="clearfix"> </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div id="forgot-pw" class="modal forgot-pw fade" data-easein="pulse" data-top="15" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <div class="text-center">
-                        <h3><i class="fa fa-lock fa-4x"></i></h3>
-                        <h2 class="text-center">Forgot Password ?</h2>
-                        <p>You can reset your password here.</p>
-                        <div class="panel-body">
-                            <form id="register-form" role="form" autocomplete="off" class="form" method="post">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
-                                        <input id="email" name="email" placeholder="Email address" class="form-control"  type="email">
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <input type="hidden" class="hide" name="token" id="token" value="">
-                                    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
-                                    <button class="btn btn-primary">Reset Password</button>
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>

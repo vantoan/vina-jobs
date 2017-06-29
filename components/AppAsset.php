@@ -35,6 +35,8 @@ class AppAsset extends AssetBundle
         '/web/template/jobs/js/jquery.flexisel.js',
         '/web/template/jobs/js/jquery.wmuSlider.js',
         '/vendor/bower/iCheck/icheck.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js',
 
         '/web/js/site.js',
     ];

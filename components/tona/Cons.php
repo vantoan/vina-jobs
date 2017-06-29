@@ -23,6 +23,7 @@ class Cons
     const   SQL_DATE        = 'Y-m-d',
             SQL_DATE_TIME   = 'Y-m-d H:i:s';
 
+    const TEMPLATE_JOBS = 'vina-jobs';
     const TEMPLATE_RESUME = 'recruitment';
     const TEMPLATE_FOLDER = 'taco';
 

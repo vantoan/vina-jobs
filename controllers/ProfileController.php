@@ -19,12 +19,7 @@ use yii\filters\VerbFilter;
  */
 class ProfileController extends BaseController
 {
-    public function init(){
-        $this->layout = Cons::TEMPLATE_RESUME;
-        if(Login::checked() == false){
-            return $this->redirect('/');
-        }
-    }
+
     /**
      * @inheritdoc
      */
@@ -40,15 +35,14 @@ class ProfileController extends BaseController
         ];
     }
 
-    public function actions()
-    {
+    public function actionForgotPassword(){
 
-        return [
-            'auth' => [
-                'class' => 'yii\authclient\AuthAction',
-                'successCallback' => [$this, 'onAuthSuccess'],
-            ],
-        ];
+        return $this->render('password-forgot-results');
+    }
+
+    public function actionUpdatePassword($token = null){
+
+        return $this->render('password-update');
     }
 
     /**
