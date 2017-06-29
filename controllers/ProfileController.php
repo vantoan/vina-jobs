@@ -35,6 +35,11 @@ class ProfileController extends BaseController
         ];
     }
 
+    public function actionActiveAcount($token){
+        $actived = Users::doActiveAccount($token);
+        return $this->render('active-account', ['actived' => $actived]);
+    }
+
     public function actionForgotPassword(){
 
         return $this->render('password-forgot-results');

@@ -117,6 +117,7 @@ class SiteController extends BaseController
         }
 
         $model = new RegisterForm();
+        Users::updateToUserDetail(67);
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->app_type = Users::APP_TYPE_WEB;
             $model->created_date = Datetime::getDateNow(Datetime::SQL_DATETIME);

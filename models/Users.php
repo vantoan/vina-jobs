@@ -218,14 +218,15 @@ class Users extends \app\models\Base\TnUser implements IdentityInterface
     }
 
     public static function updateToUserDetail($user_id, $dataForm = []){
-        $token = \Yii::$app->security->generateRandomKey();
+        $token = \Yii::$app->security->generateRandomString();
         $user = Users::findOne($user_id);
         $user->status = self::USER_STATUS_REGISTER;
-        $user->access_token = $token;
+        $user->access_token = \Yii::$app->security->generateRandomString();
+        $user->actived_token = $token;
         $user->update();
 
-        $data = $dataForm['RegisterForm'];
-        self::sendEmailToActiveAcount($data['username'], $token);
+//        $data = $dataForm['RegisterForm'];
+//        self::sendEmailToActiveAcount($data['username'], $token);
     }
 
     public static function sendEmailToActiveAcount($to_email, $token = ''){
@@ -258,6 +259,10 @@ class Users extends \app\models\Base\TnUser implements IdentityInterface
         $html = str_replace('{url}', $url, $html);
         $html = str_replace('{site_url}', Helper::siteURL(), $html);
         return $html;
+    }
+
+    public static function doActiveAccount($token){
+
     }
 
 }

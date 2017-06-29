@@ -27,8 +27,9 @@ return [
     'logout.html'                                                               => 'site/logout',
 
 
-    'forgot-password.html'                                                               => 'profile/forgot-password',
-    'update-password.html'                                                               => 'profile/update-password',
+    'forgot-password.html'                                                      => 'profile/forgot-password',
+    'update-password.html'                                                      => 'profile/update-password',
+    'profile/active-acount.html'                                                => 'profile/active-acount',
 
 
 
