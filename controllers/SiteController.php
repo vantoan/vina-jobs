@@ -85,7 +85,14 @@ class SiteController extends BaseController
      */
     public function actionIndex()
     {
-        return $this->render('index', [
+    	$locations = Locations::getList();
+    	$mod = count($locations) % 4;
+    	$num_per_column = (count($locations) - $mod) / 4;
+	    return $this->render('index', [
+        	'locations' => $locations,
+        	'locations_count' => count($locations),
+        	'num_per_column' => $num_per_column,
+        	'mod' => $mod,
         ]);
     }
 
