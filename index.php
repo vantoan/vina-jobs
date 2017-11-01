@@ -1,6 +1,6 @@
 <?php
 //phpinfo(); die;
-const MAIL_HOST = 'mail.vina-jobs.com';
+const MAIL_HOST = 'mail.vina-jobs.com'
 const MAIL_USERNAME = 'admin@vina-jobs.com';
 const MAIL_PASS = "]W#Xg]8Pa-sb";
 const MAIL_PORT = 25;
